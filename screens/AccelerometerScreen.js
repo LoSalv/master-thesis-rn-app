@@ -26,14 +26,6 @@ const HomeScreen = ({ navigation }) => {
 
     let time;
 
-    const _slow = () => {
-        Accelerometer.setUpdateInterval(150);
-    };
-
-    const _fast = () => {
-        Accelerometer.setUpdateInterval(35);
-    };
-
     const _subscribe = () => {
         setSubscription(
             Accelerometer.addListener(accelerometerData => {
@@ -57,6 +49,7 @@ const HomeScreen = ({ navigation }) => {
     const _runTask = () => {
         console.log("Run Task")
         time = new Date().getTime();
+        Accelerometer.setUpdateInterval(150);
         _subscribe();
     };
 
@@ -76,11 +69,9 @@ const HomeScreen = ({ navigation }) => {
 
         _average /= times.length;
 
-        console.log(_min);
-
         setAverage(_average);
-        setMax(_max);
-        setMin(_min);
+        // setMax(_max);
+        // setMin(_min);
     };
 
     const { x, y, z } = data;
@@ -89,20 +80,14 @@ const HomeScreen = ({ navigation }) => {
         <SafeAreaView >
             <StatusBar />
             <View>
-                <Text>Accelerometer: (in Gs where 1 G = 9.81 m s^-2)</Text>
-                <Text>
-                    x: {round(x)} y: {round(y)} z: {round(z)}
-                </Text>
+                <Text>Accelerometer: [{round(x)}, {round(y)}, {round(z)}]</Text>
                 <View style={{ flexDirection: "column" }}>
-                    <Button onPress={subscription ? _unsubscribe : _subscribe}
-                        title={subscription ? 'On' : 'Off'} />
-                    <Button onPress={_slow} title={"Slow"} />
-                    <Button onPress={_fast} title={"Fast"} />
                     <Button onPress={_runTask} title={"Start Task"} />
+
                     <Button onPress={_stopTask} title={"Stop Task"} />
-                    <Text>{"Average: " + average}</Text>
-                    <Text>{"Min:" + min}</Text>
-                    <Text>{"Max: " + max}</Text>
+                    <Text>{"Average time between measurements: " + average}</Text>
+                    {/* <Text>{"Min:" + min}</Text>
+                    <Text>{"Max: " + max}</Text> */}
                 </View>
             </View>
         </SafeAreaView >

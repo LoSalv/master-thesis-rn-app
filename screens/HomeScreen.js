@@ -6,16 +6,10 @@ import {
     useColorScheme,
     View,
 } from 'react-native';
-
 import React from 'react';
-
 import {
     Colors,
 } from 'react-native/Libraries/NewAppScreen';
-
-import Constants from 'expo-constants';
-console.log("#############")
-console.log(Constants.systemFonts);
 
 const HomeScreen = ({ navigation }) => {
     const isDarkMode = useColorScheme() === 'dark';
