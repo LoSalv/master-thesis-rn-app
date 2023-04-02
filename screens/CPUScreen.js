@@ -6,7 +6,6 @@ function CPUScreen() {
     const [text, changeText] = useState("Duration:\nResult:")
 
     const runCalculation = () => {
-        addText("Starting calculations...")
         let startDate = Date.now()
         let result = 0
         for (var i = Math.pow(20, 7); i >= 0; i--) {

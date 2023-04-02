@@ -20,8 +20,6 @@ const HomeScreen = ({ navigation }) => {
     const [subscription, setSubscription] = useState(null);
 
     const [average, setAverage] = useState(null);
-    const [min, setMin] = useState(null);
-    const [max, setMax] = useState(null);
     const [times, setTimes] = useState([]);
 
     let time;
@@ -49,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
     const _runTask = () => {
         console.log("Run Task")
         time = new Date().getTime();
-        Accelerometer.setUpdateInterval(150);
+        Accelerometer.setUpdateInterval(0);
         _subscribe();
     };
 
@@ -70,8 +68,6 @@ const HomeScreen = ({ navigation }) => {
         _average /= times.length;
 
         setAverage(_average);
-        // setMax(_max);
-        // setMin(_min);
     };
 
     const { x, y, z } = data;
@@ -86,8 +82,6 @@ const HomeScreen = ({ navigation }) => {
 
                     <Button onPress={_stopTask} title={"Stop Task"} />
                     <Text>{"Average time between measurements: " + average}</Text>
-                    {/* <Text>{"Min:" + min}</Text>
-                    <Text>{"Max: " + max}</Text> */}
                 </View>
             </View>
         </SafeAreaView >

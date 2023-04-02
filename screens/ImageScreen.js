@@ -10,7 +10,6 @@ export default function ImageScreen({ route, navigation }) {
     const [imageSizes, setSize] = useState([500, 500]);
 
     function zoom() {
-        console.log(imageSizes[0]);
         switch (imageSizes[1]) {
             case 350:
                 setSize([200, 200])

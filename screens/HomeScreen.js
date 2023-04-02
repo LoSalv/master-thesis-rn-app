@@ -49,7 +49,7 @@ const HomeScreen = ({ navigation }) => {
                             navigation.navigate('UI')
                         }}
                         disabled={false}
-                        title={"GUI"}
+                        title={"UI"}
                     />
                 </View>
             </ScrollView>

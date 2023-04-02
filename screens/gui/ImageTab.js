@@ -1,13 +1,29 @@
 import { Image, View, StyleSheet, TouchableHighlight, FlatList } from "react-native";
 import React from 'react';
 
-const data = [];
-
-for (let i = 0; i < 7; i++) {
-    data.push({ uri: require('../../assets/image.jpg') });
-    data.push({ uri: require('../../assets/image1.png') });
-    data.push({ uri: require('../../assets/image2.png') });
-}
+const data = [
+    { uri: require('../../assets/image.jpg') },
+    { uri: require('../../assets/image1.png') },
+    { uri: require('../../assets/image2.png') },
+    { uri: require('../../assets/image.jpg') },
+    { uri: require('../../assets/image1.png') },
+    { uri: require('../../assets/image2.png') },
+    { uri: require('../../assets/image.jpg') },
+    { uri: require('../../assets/image1.png') },
+    { uri: require('../../assets/image2.png') },
+    { uri: require('../../assets/image.jpg') },
+    { uri: require('../../assets/image1.png') },
+    { uri: require('../../assets/image2.png') },
+    { uri: require('../../assets/image.jpg') },
+    { uri: require('../../assets/image1.png') },
+    { uri: require('../../assets/image2.png') },
+    { uri: require('../../assets/image.jpg') },
+    { uri: require('../../assets/image1.png') },
+    { uri: require('../../assets/image2.png') },
+    { uri: require('../../assets/image.jpg') },
+    { uri: require('../../assets/image1.png') },
+    { uri: require('../../assets/image2.png') }
+];
 
 export default function ImageTab(props) {
 
